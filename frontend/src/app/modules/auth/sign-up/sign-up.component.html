@@ -1,0 +1,62 @@
+<div class="grid grid-cols-2 w-full h-full">
+
+  <!-- left -->
+  <div class="hidden sm:inline-flex flex-col col-span-1 items-center w-full bg-[#007afd] p-20 gap-3">
+    <img src="/assets/images/signup-logo.png" alt="" class="w-80 h-32 mt-40">
+    <span class="text-white text-lg">Manage your task efforlessly and efficiently.</span>
+  </div>
+
+  <!-- right -->
+
+  <div class="flex flex-col sm:col-span-1 col-span-2 w-full bg-white sm:p-40 p-10  gap-10">
+
+    <img src="/assets/images/task manager-logos_transparent.png" alt="" class="sm:hidden w-80 h-26">
+
+    <div class="flex flex-row gap-3 items-center">
+      <span class="font-bold text-3xl text-[#007afd]"> Sign Up </span>
+    </div>
+
+    <div class="flex flex-col flex-auto">
+      <form [formGroup]="signupForm" name="signupForm" (keydown.enter)="$event.preventDefault()" (ngSubmit)="submit()"
+        class="items-center justify-between w-full">
+        <div class="grid grid-cols-1 gap-5 gap-x-5">
+          <mat-form-field appearance="fill" class="col-span-1">
+            <mat-label>Username</mat-label>
+            <input matInput placeholder="Enter your username here" formControlName="username" required />
+            <mat-icon matPrefix>person_outline</mat-icon>
+            <mat-error *ngIf="signupForm.get('username')?.hasError('invalidUsername')">Username is required / Invalid
+              Username</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" class="col-span-1">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Enter your email here" formControlName="email" required />
+            <mat-icon matPrefix>email</mat-icon>
+            <mat-error *ngIf="signupForm.get('email')?.hasError('emailFormat')">Invalid email format (ex:
+              harry@dev.in/ashok@google.com)</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" class="col-span-1">
+            <mat-label>Password</mat-label>
+            <input matInput placeholder="Enter your password here" formControlName="password"
+              [type]="hide ? 'password' : 'text'" required />
+            <mat-icon matPrefix>{{hide ? 'lock' : 'lock_open'}}</mat-icon>
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide" type="button">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <mat-error *ngIf="signupForm.get('password')?.hasError('required')">Passowrd is required</mat-error>
+          </mat-form-field>
+
+          <button mat-raised-button class="bg-[#007afd] text-white" type="submit">Sign In</button>
+
+          <div class="px-8 col-span-1 items-center justify-center  flex flex-row gap-3">
+            <span class="text-sm text-slate-500">Already have an account?</span>
+            <span class="text-sm text-[#007afd] cursor-pointer" routerLink="/login">Log In</span>
+          </div>
+
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

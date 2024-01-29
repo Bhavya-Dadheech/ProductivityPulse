@@ -1,0 +1,146 @@
+<!-- <router-outlet></router-outlet> -->
+
+<!-- ===================== 1 ===================== -->
+<!-- <mat-drawer-container>
+  <mat-drawer mode="side" opened="true">
+    <div>side nav bar here</div>
+  </mat-drawer>
+  <mat-drawer-content>
+    <div>app header here</div>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container> -->
+
+<!-- ===================== 2 ===================== -->
+<!-- <mat-toolbar>
+  <mat-toolbar-row>
+    <button mat-button (click)="sidenav.toggle()" class="text-sky-600 text-lg">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar> -->
+<mat-sidenav-container class="example-container" [hasBackdrop]="hasBackdrop.value">
+  <!-- side nav bar -->
+  <mat-sidenav [opened]="nav_open" #sidenav [mode]="mode.value!" [position]="position.value!" class="p-2 bg-[#007afd]"
+    (backdropClick)="sidenav.close()">
+    <!-- ... existing code ... -->
+
+    <div class="sm:w-[12vw] w-[60vw] p-2 flex flex-col items-center">
+      <!-- <button mat-button (click)="sidenav.toggle()" class="ml-auto text-sky-600 text-lg" [hidden]="true">
+        <mat-icon>menu</mat-icon>
+      </button> -->
+      <img src="/assets/images/signup-logo.png" alt="" class="w-40 h-16 cursor-pointer" (click)="home()">
+    </div>
+
+    <div class="sm:w-[12vw] w-[60vw] flex flex-col items-center pt-5 p-2 mt-2">
+      <span class="text-white text-lg font-medium">
+        {{username}}'s&nbsp;LISTS
+      </span>
+      <div class="sm:w-[10vw] w-[50vw] flex flex-col p-2 items-center gap-2">
+        <span
+          [ngClass]="{'bg-slate-100': i === userListID, 'text-black': i === userListID, 'text-white': i !== userListID}"
+          class="sm:w-[10vw] w-[50vw] text-center px-2 py-1 rounded-md font-medium cursor-pointer hover:bg-slate-100 hover:text-gray-600 leading-5 text-justify overflow-hidden text-ellipsis break-all"
+          style="
+                max-width: 10rem;
+              display: -webkit-box;
+              -webkit-line-clamp: 1;
+              -webkit-box-orient: vertical;" *ngFor="let ul of UserLists;let i = index" (click)="ListClick(i)">{{
+          ul.list_name}}</span>
+      </div>
+    </div>
+
+    <div class="sm:w-[12vw] w-[60vw] flex flex-col p-2 items-center text-white absolute bottom-8">
+      <button matTooltip="create new list" [matTooltipPosition]="'above'" matTooltipHideDelay="1000" mat-raised-button
+        type="button" (click)="newList()"
+        class="sm:w-[10vw] w-[50vw] rounded-md hover:bg-sky-200 bg-slate-100 p-2 text-gray-600">
+        <mat-icon>add_circle_outline</mat-icon>
+        New List
+      </button>
+    </div>
+  </mat-sidenav>
+
+  <!-- top nav bar -->
+  <mat-sidenav-content class="bg-slate-100">
+
+    <!-- top nav -->
+    <div class="flex flex-row p-2 shadow items-center justify-between">
+      <button mat-button (click)="sidenav.toggle()" class="text-[#007afd] text-lg">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <div class="flex flex-row items-center justify-center sm:gap-3 gap-0">
+        <span *ngIf="!currentList" class="text-[#007afd] text-lg font-medium">Tasks</span>
+        <span *ngIf="currentList"
+          class="text-[#007afd] text-lg font-medium  leading-5 text-justify overflow-hidden text-ellipsis break-all sm:max-w-[20rem] max-w-[10rem]"
+          style="
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;">{{currentList}}</span>
+
+        <!-- settings button for mobile -->
+        <button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" *ngIf="currentList"
+          [style]="nav_open?'display:none !important':''" class="mt-2">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu" xPosition="before">
+          <button mat-menu-item>
+            <span *ngIf="currentList" (click)="editList($event)"
+              class="cursor-pointer hover:shadow-md hover:bg-slate-300 text-[#007afd] rounded-full">
+              <!-- <mat-icon>edit</mat-icon> -->
+              EDIt
+            </span>
+          </button>
+          <button mat-menu-item>
+            <span *ngIf="currentList" (click)="deleteList($event)"
+              class="cursor-pointer hover:shadow-md hover:bg-slate-300 text-red-600 rounded-full">DELETE</span>
+          </button>
+        </mat-menu>
+
+        <!-- edit delete button for web view -->
+        <mat-icon *ngIf="currentList" (click)="editList($event)" [style]="!nav_open?'display:none !important':''"
+          class="cursor-pointer hover:shadow-md hover:bg-slate-300 text-[#007afd] rounded-full">edit</mat-icon>
+        <mat-icon *ngIf="currentList" (click)="deleteList($event)" [style]="!nav_open?'display:none !important':''"
+          class="cursor-pointer hover:shadow-md hover:bg-slate-300 text-red-600 rounded-full">delete</mat-icon>
+      </div>
+      <div>
+        <button [matMenuTriggerFor]="beforeMenu"
+          class="rounded-full bg-sky-200 py-[0.5rem] px-[0.65rem] text-slate-500"><mat-icon>person_outline</mat-icon></button>
+        <mat-menu #beforeMenu="matMenu" xPosition="before">
+          <span mat-menu-item>{{ username }}</span>
+          <button mat-menu-item (click)="logout()">Logout</button>
+        </mat-menu>
+      </div>
+    </div>
+    <!-- <p>
+      <mat-radio-group class="example-radio-group" [formControl]="mode">
+        <label>Mode:</label>
+        <mat-radio-button value="over">Over</mat-radio-button>
+        <mat-radio-button value="side">Side</mat-radio-button>
+        <mat-radio-button value="push">Push</mat-radio-button>
+      </mat-radio-group>
+      <mat-radio-group class="example-radio-group" [formControl]="hasBackdrop">
+        <label>Has Backdrop:</label>
+        <mat-radio-button [value]="null">Default</mat-radio-button>
+        <mat-radio-button [value]="true">true</mat-radio-button>
+        <mat-radio-button [value]="false">false</mat-radio-button>
+      </mat-radio-group>
+      <mat-radio-group class="example-radio-group" [formControl]="position">
+        <label>Position:</label>
+        <mat-radio-button value="start">Start</mat-radio-button>
+        <mat-radio-button value="end">End</mat-radio-button>
+      </mat-radio-group>
+    </p> -->
+
+    <!-- main body -->
+    <div class="p-5 w-full h-[90%]">
+      <div class="w-full h-full rounded-xl p-3">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<!-- ===================== 3 ===================== -->
+<!-- <mat-drawer-container class="example-container">
+  <mat-drawer mode="side" opened>Drawer content</mat-drawer>
+  <mat-drawer-content>Main content</mat-drawer-content>
+</mat-drawer-container> -->

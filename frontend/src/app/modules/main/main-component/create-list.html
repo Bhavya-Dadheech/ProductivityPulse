@@ -1,0 +1,16 @@
+<div class="flex flex-col gap-5 sm:w-[20vw] w-[65vw]">
+  <div class="text-[#007afd] text-lg font-medium sm:w-[20vw] w-[65vw]">
+    <span *ngIf="!pageName">Create A New List</span>
+    <span *ngIf="pageName">{{pageName}}</span>
+  </div>
+  <div class="sm:w-[20vw] w-[65vw]">
+    <mat-form-field appearance="fill" class="sm:w-[20vw] w-[65vw]">
+      <mat-label>List Name</mat-label>
+      <input matInput [(ngModel)]="name">
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions class="sm:w-[20vw] w-[65vw]">
+    <button mat-stroked-button (click)="close()">Cancel</button>
+    <button mat-raised-button [mat-dialog-close]="name" class="bg-[#007afd] text-white">Save</button>
+  </div>
+</div>

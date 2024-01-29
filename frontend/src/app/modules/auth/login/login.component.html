@@ -1,0 +1,66 @@
+<div class="grid grid-cols-2 w-full h-full">
+
+  <!-- left -->
+  <div class="flex flex-col sm:col-span-1 col-span-2 w-full bg-white sm:p-40 p-10 sm:mt-0 mt-20 gap-5">
+    <!-- logo and name -->
+    <div class="flex flex-row gap-3 items-center">
+      <img src="/assets/images/new_logo1.png" alt="" class="w-6 h-6 text-[#007afd] bg-[#007afd]" />
+      <span class="font-semibold text-2xl text-[#007afd]"> Task Manager </span>
+    </div>
+
+    <!-- login to your account label -->
+    <div class="flex flex-row gap-3 items-center">
+      <span class="font-bold text-3xl"> Login to your Account </span>
+    </div>
+
+    <div class="flex flex-col flex-auto">
+      <form [formGroup]="loginForm" name="loginForm" (keydown.enter)="$event.preventDefault()" (ngSubmit)="submit()"
+        #signInNgForm="ngForm" class="items-center justify-between w-full">
+        <div class="grid grid-cols-1 gap-5 gap-x-5">
+          <mat-form-field appearance="fill" class="col-span-1">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Enter your email here" formControlName="email" required />
+            <mat-icon matPrefix>email</mat-icon>
+            <mat-error *ngIf="loginForm.get('email')?.hasError('emailFormat')">Invalid email format (ex:
+              harry@dev.in/ashok@google.com)</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" class="col-span-1">
+            <mat-label>Password</mat-label>
+            <input matInput placeholder="Enter your password here" formControlName="password"
+              [type]="hide ? 'password' : 'text'" required />
+            <mat-icon matPrefix>{{hide ? 'lock' : 'lock_open'}}</mat-icon>
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide" type="button">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <mat-error *ngIf="loginForm.get('password')?.hasError('required')">Passowrd is required</mat-error>
+          </mat-form-field>
+
+          <button mat-raised-button class="bg-[#007afd] text-white" type="submit">Log In</button>
+
+          <div class="px-8 col-span-1 flex items-center justify-center flex-row gap-3">
+            <span class="sm:text-sm text-xs text-slate-500">Don't have an account?</span>
+            <span class="sm:text-sm text-xs text-[#007afd] cursor-pointer" routerLink="/signup">Create one here!</span>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- right -->
+  <div class="hidden sm:inline-flex flex-col col-span-1 w-full bg-[#007afd] p-20 gap-3">
+    <div class="flex items-center justify-between">
+      <img src="/assets/images/logo1-fotor.png" alt="" class="w-48 h-48 ml-14" />
+      <img src="/assets/images/logo2-fotor.png" alt="" class="w-64 h-48 mr-14" />
+    </div>
+    <div class="flex  items-center justify-center">
+      <img src="/assets/images/logo3-fotor.png" alt="" class="w-48 h-48" />
+    </div>
+    <div class="flex items-center justify-center mt-2">
+      <span class="text-white text-lg">
+        Manage your tasks efficiently and efforlessly.
+      </span>
+    </div>
+  </div>
+</div>

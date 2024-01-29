@@ -1,0 +1,51 @@
+// =========================== 1 =========================
+// :host{
+//   display: flex;
+//   flex-direction: column;
+//   height: 100%;
+// }
+
+// mat-drawer{
+//   width: 15vw;
+//   background-color: #007afd;
+// }
+
+// mat-drawer-container{
+//   height: 100%;
+// }
+
+// =========================== 2 =========================
+.example-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.example-radio-group {
+  display: block;
+  border: 1px solid #555;
+  margin: 20px;
+  padding: 10px;
+}
+
+li {
+  padding: 0.75rem;
+  color: rgb(2 132 199);
+  font-weight: 400;
+  border-radius: 0.375rem;
+}
+
+li:hover {
+  cursor: pointer;
+  background-color: rgb(186 230 253);
+}
+
+// =========================== 3 =========================
+// .example-container {
+//   width: 400px;
+//   height: 200px;
+//   margin: 10px;
+//   border: 1px solid #555;
+// }
