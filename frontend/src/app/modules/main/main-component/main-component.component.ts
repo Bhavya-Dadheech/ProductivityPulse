@@ -8,7 +8,7 @@ import {
 import { MatDrawerMode } from '@angular/material/sidenav';
 import { AuthService } from 'src/app/shared/services/authServices/authService.service';
 import { SnackbarServices } from 'src/app/shared/services/snackbar/snackbar.service';
-import { LogoutComponent } from '../../auth/logout/logout.component';
+import { ConfirmationDialog } from '../../layouts/confirmation-dialog/confirmation-dialog.component';
 import {
   ActivatedRoute,
   ActivatedRouteSnapshot,
@@ -111,8 +111,13 @@ export class MainComponent implements OnInit, OnDestroy {
   }
 
   logout() {
-    const dialogRef = this.dialog.open(LogoutComponent, {
+    const dialogRef = this.dialog.open(ConfirmationDialog, {
       width: this.mode.getRawValue() == 'over' ? '130vw' : '25vw',
+      data: {
+        message: 'Are you sure you want to log out?',
+        cancelButtonLabel: 'No Thanks',
+        confirmButtonLabel: 'Ok',
+      },
     });
 
     dialogRef.afterClosed().subscribe((result: any) => {
@@ -142,7 +147,7 @@ export class MainComponent implements OnInit, OnDestroy {
       if (result != undefined && result != null && result != '') {
         this.userListService.saveUserList(ul, this.user_id).subscribe({
           next: (resp: any) => {
-            this.snackBarService.successSnack('list created successfully');
+            // this.snackBarService.successSnack('list created successfully');
             this.getUserLists();
           },
           error: (error: any) => {
@@ -193,22 +198,36 @@ export class MainComponent implements OnInit, OnDestroy {
     event.stopPropagation();
     const list = this.UserLists[this.userListID];
     console.log(list);
-    this.userListService.deleteList(list.list_id).subscribe({
-      next: (resp: any) => {
-        console.log(resp);
-        this.currentList = null;
 
-        this.userListService.getUserLists(this.user_id).subscribe({
-          next: (resp: any) => {
-            this.UserLists = resp.data;
-            this.router.navigate(['/main/home']);
-          },
-          error: (error: any) => {
-            this.snackBarService.errorsSnack(error);
-          },
-        });
+    const dialogRef = this.dialog.open(ConfirmationDialog, {
+      width: this.mode.getRawValue() == 'over' ? '130vw' : '25vw',
+      data: {
+        message: 'Are you sure you want to delete this list and related task?',
+        cancelButtonLabel: 'Cancel',
+        confirmButtonLabel: 'Yes',
       },
-      error: (err: any) => {},
+    });
+
+    dialogRef.afterClosed().subscribe((result: any) => {
+      if(result == 'Ok'){
+        this.userListService.deleteList(list.list_id).subscribe({
+          next: (resp: any) => {
+            console.log(resp);
+            this.currentList = null;
+  
+            this.userListService.getUserLists(this.user_id).subscribe({
+              next: (resp: any) => {
+                this.UserLists = resp.data;
+                this.router.navigate(['/main/home']);
+              },
+              error: (error: any) => {
+                this.snackBarService.errorsSnack(error);
+              },
+            });
+          },
+          error: (err: any) => {},
+        });
+      }
     });
   }
 

@@ -9,6 +9,7 @@ import { Task } from 'src/app/shared/models/Task';
 import { SnackbarServices } from 'src/app/shared/services/snackbar/snackbar.service';
 import { TaskService } from 'src/app/shared/services/taskService/task.service';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { ConfirmationDialog } from '../../layouts/confirmation-dialog/confirmation-dialog.component';
 
 @Component({
   selector: 'app-task',
@@ -86,7 +87,7 @@ export class TaskComponent implements OnInit {
         if (result != undefined && result != null && result != '') {
           this.taskService.saveTask(task, this.list_id).subscribe({
             next: (resp: any) => {
-              this.snackBarService.successSnack('task added successfully');
+              // this.snackBarService.successSnack('task added successfully');
               this.getTask(this.list_id);
             },
             error: (err: any) => {
@@ -135,12 +136,25 @@ export class TaskComponent implements OnInit {
 
   deleteTask(event: Event, taskId: any) {
     event.stopPropagation();
-    this.taskService.deleteTask(taskId).subscribe({
-      next: (resp: any) => {
-        this.getTask(this.list_id);
+    const dialogRef = this.dialog.open(ConfirmationDialog, {
+      width: this.mode ? '130vw' : '25vw',
+      data: {
+        message: 'Are you sure you want to delete this task?',
+        cancelButtonLabel: 'Cancel',
+        confirmButtonLabel: 'Yes',
       },
-      error: (err: any) => {},
-      complete: () => {},
+    });
+
+    dialogRef.afterClosed().subscribe((result: any) => {
+      if (result == 'Ok') {
+        this.taskService.deleteTask(taskId).subscribe({
+          next: (resp: any) => {
+            this.getTask(this.list_id);
+          },
+          error: (err: any) => {},
+          complete: () => {},
+        });
+      }
     });
   }
 

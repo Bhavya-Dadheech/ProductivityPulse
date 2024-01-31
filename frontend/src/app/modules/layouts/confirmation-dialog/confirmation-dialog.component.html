@@ -1,0 +1,7 @@
+<div class="text-lg font-medium text-red-600">
+  {{message}}
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button (click)="onNoClick()">{{cancelButtonLabel}}</button>
+  <button mat-stroked-button [mat-dialog-close]="OK" cdkFocusInitial>{{confirmButtonLabel}}</button>
+</div>

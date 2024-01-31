@@ -19,7 +19,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './modules/auth/login/login.component';
 import { SignUpComponent } from './modules/auth/sign-up/sign-up.component';
 import { NotfoundComponent } from './modules/layouts/notfound/notfound.component';
-import { LogoutComponent } from './modules/auth/logout/logout.component';
+import { ConfirmationDialog } from './modules/layouts/confirmation-dialog/confirmation-dialog.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +27,7 @@ import { LogoutComponent } from './modules/auth/logout/logout.component';
     LoginComponent,
     SignUpComponent,
     NotfoundComponent,
-    LogoutComponent,
+    ConfirmationDialog,
   ],
   imports: [
     BrowserModule,
