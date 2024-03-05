@@ -86,7 +86,7 @@ export class LoginComponent implements OnInit {
             // Reset the form
             this.signInNgForm.resetForm();
             // this.snackBarService.warningSnack('Wrong email or password');
-            this.snackbarService.errorsSnack(error);
+            this.snackbarService.errorsSnack("Bad Credentials");
           },
         });
     } else {

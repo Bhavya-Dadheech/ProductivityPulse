@@ -7,7 +7,7 @@ import { NavigationEnd, Router } from '@angular/router';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'LoginAndRegistration';
+  title = 'ProductivityPulse';
   isLoginOrSignupRoute!: boolean;
 
   constructor(private router: Router) {
