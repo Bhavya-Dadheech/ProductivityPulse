@@ -60,6 +60,6 @@ https://github.com/Bhavya-Dadheech/ProductivityPulse/assets/70031238/77e20517-5a
 
 # Contributions
 
-Contributions to the News Horizon are welcome! If you encounter any bugs or issues or have ideas for improvements, please open an issue on the repository. Pull requests with enhancements are also appreciated.
+Contributions to the ProductivityPulse are welcome! If you encounter any bugs or issues or have ideas for improvements, please open an issue on the repository. Pull requests with enhancements are also appreciated.
 
 (If you liked the project, give it a star 😃).
