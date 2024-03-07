@@ -121,7 +121,7 @@ export class MainComponent implements OnInit, OnDestroy {
     });
 
     dialogRef.afterClosed().subscribe((result: any) => {
-      if (result === 'OK') {
+      if (result === "OK") {
         this._authService.logout().subscribe(
           (resp: any) => {
             this.snackBarService.warningSnack('Log out successfully');
@@ -209,7 +209,7 @@ export class MainComponent implements OnInit, OnDestroy {
     });
 
     dialogRef.afterClosed().subscribe((result: any) => {
-      if(result == 'Ok'){
+      if(result == "OK"){
         this.userListService.deleteList(list.list_id).subscribe({
           next: (resp: any) => {
             console.log(resp);

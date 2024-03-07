@@ -54,10 +54,10 @@ public class ListsController {
 
 	}
 
-	@PutMapping("/update_list/{listId}")
-	public ResponseEntity<?> updateList(@RequestBody UserLists userlists, @PathVariable int listId) {
+	@PutMapping("/update_list/{userId}")
+	public ResponseEntity<?> updateList(@RequestBody UserLists userlists, @PathVariable int userId) {
 		return ResponseHandler.responseBuilder("list updated successfully", HttpStatus.OK,
-				listServiceimpl.updateList(userlists, listId));
+				listServiceimpl.updateList(userlists, userId));
 	}
 
 	@DeleteMapping("/delete_list/{listId}")

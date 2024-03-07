@@ -146,7 +146,7 @@ export class TaskComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result: any) => {
-      if (result == 'Ok') {
+      if (result === "OK") {
         this.taskService.deleteTask(taskId).subscribe({
           next: (resp: any) => {
             this.getTask(this.list_id);
