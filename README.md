@@ -1,4 +1,4 @@
-# ProductivityPulse
+![tailwind-css](https://github.com/Bhavya-Dadheech/ProductivityPulse/assets/70031238/8af75e07-6d96-49c9-a859-8cb7ea5fd039)# ProductivityPulse
 
 This comprehensive task management application is the result of a hands-on learning journey that combines Angular for the frontend and Spring Boot (Java) for the backend. Developed with a primary focus on mastering the creation of RESTful APIs in Spring Boot, this project offers a robust platform for managing tasks efficiently.
 The application covers fundamental CRUD (Create, Read, Update, Delete) operations, providing users with a seamless experience to organize and oversee their tasks. Notably, the project delves into the intricacies of user authentication and authorization using JWT tokens. By implementing an AuthGuard mechanism and leveraging local storage on the client side, the application ensures secure access for registered users.
@@ -36,11 +36,11 @@ To run the web application locally, you need to install node.js and angular-cli 
 
 # Tech Stack Used
 
-![javascript (2)](https://github.com/Bhavya-Dadheech/ProductivityPulse/assets/70031238/a83c72bb-1dd7-4eaf-9202-4eadb584dd51)
-![css](https://github.com/Bhavya-Dadheech/ProductivityPulse/assets/70031238/490412c6-4605-477c-af12-7cbe64ce6c81)
 ![html](https://github.com/Bhavya-Dadheech/ProductivityPulse/assets/70031238/6721182c-7126-405a-9f85-a5a5eda78554)
+![css](https://github.com/Bhavya-Dadheech/ProductivityPulse/assets/70031238/490412c6-4605-477c-af12-7cbe64ce6c81)
+![javascript (2)](https://github.com/Bhavya-Dadheech/ProductivityPulse/assets/70031238/a83c72bb-1dd7-4eaf-9202-4eadb584dd51)
+![tailwind-css](https://github.com/Bhavya-Dadheech/ProductivityPulse/assets/70031238/237abcdf-3e02-440b-bf7d-3267cdd76f5a)
 ![angular](https://github.com/Bhavya-Dadheech/ProductivityPulse/assets/70031238/18654e05-e786-452a-ac0b-5ad877991300)
-![tailwind-css](https://github.com/Bhavya-Dadheech/ProductivityPulse/assets/70031238/bbe56371-064c-4024-9674-65209473e54d)
 ![spring](https://github.com/Bhavya-Dadheech/ProductivityPulse/assets/70031238/64083563-ff94-40a6-9d5d-9f75213f72ba)
 
 
