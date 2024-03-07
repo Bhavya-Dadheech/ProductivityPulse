@@ -49,8 +49,8 @@ Before you begin, ensure you have the following installed on your machine:
 ![html](https://github.com/Bhavya-Dadheech/ProductivityPulse/assets/70031238/6721182c-7126-405a-9f85-a5a5eda78554)
 ![css](https://github.com/Bhavya-Dadheech/ProductivityPulse/assets/70031238/490412c6-4605-477c-af12-7cbe64ce6c81)
 ![javascript (2)](https://github.com/Bhavya-Dadheech/ProductivityPulse/assets/70031238/a83c72bb-1dd7-4eaf-9202-4eadb584dd51)
-![tailwind-css](https://github.com/Bhavya-Dadheech/ProductivityPulse/assets/70031238/237abcdf-3e02-440b-bf7d-3267cdd76f5a)
 ![angular](https://github.com/Bhavya-Dadheech/ProductivityPulse/assets/70031238/18654e05-e786-452a-ac0b-5ad877991300)
+![tailwind-css](https://github.com/Bhavya-Dadheech/ProductivityPulse/assets/70031238/237abcdf-3e02-440b-bf7d-3267cdd76f5a)
 ![spring](https://github.com/Bhavya-Dadheech/ProductivityPulse/assets/70031238/64083563-ff94-40a6-9d5d-9f75213f72ba)
 
 
