@@ -1,4 +1,4 @@
-![tailwind-css](https://github.com/Bhavya-Dadheech/ProductivityPulse/assets/70031238/8af75e07-6d96-49c9-a859-8cb7ea5fd039)# ProductivityPulse
+# ProductivityPulse
 
 This comprehensive task management application is the result of a hands-on learning journey that combines Angular for the frontend and Spring Boot (Java) for the backend. Developed with a primary focus on mastering the creation of RESTful APIs in Spring Boot, this project offers a robust platform for managing tasks efficiently.
 The application covers fundamental CRUD (Create, Read, Update, Delete) operations, providing users with a seamless experience to organize and oversee their tasks. Notably, the project delves into the intricacies of user authentication and authorization using JWT tokens. By implementing an AuthGuard mechanism and leveraging local storage on the client side, the application ensures secure access for registered users.
