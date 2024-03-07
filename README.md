@@ -1,38 +1,48 @@
 # ProductivityPulse
 
 This comprehensive task management application is the result of a hands-on learning journey that combines Angular for the frontend and Spring Boot (Java) for the backend. Developed with a primary focus on mastering the creation of RESTful APIs in Spring Boot, this project offers a robust platform for managing tasks efficiently.
-The application covers fundamental CRUD (Create, Read, Update, Delete) operations, providing users with a seamless experience to organize and oversee their tasks. Notably, the project delves into the intricacies of user authentication and authorization using JWT tokens. By implementing an AuthGuard mechanism and leveraging local storage on the client side, the application ensures secure access for registered users.
+The application covers fundamental CRUD (Create, Read, Update, Delete) operations, providing users with a seamless experience to organize and oversee their tasks. Notably, the project delves into the intricacies of user authentication and authorization using JWT tokens. By implementing an AuthGuard mechanism and leveraging local storage on the client side, the application ens
 
-Key features include:
-  
-  1.CRUD Operations: Perform essential task management actions with ease, allowing users to create, view, update, and delete tasks effortlessly.
-  
-  2.Authentication and Authorization: Employing JWT tokens, the application authenticates and authorizes registered users, ensuring secure access to their personalized task management environment.
-  
-  3.Angular and Spring Boot Integration: The frontend, built with Angular, seamlessly interacts with the backend powered by Spring Boot. This integration results in a responsive and dynamic user interface.
-  
-  4.Learning Focus: The project serves as a valuable educational tool, providing practical insights into REST API development, user authentication, and authorization techniques.
+## Installation
 
-# Installation
+### Prerequisites
 
-To run the web application locally, you need to install node.js and angular-cli on your device along with e. Once installed, follow these steps:
+Before you begin, ensure you have the following installed on your machine:
+
+- [Node.js](https://nodejs.org/) - Required for running the Angular frontend.
+- [npm](https://www.npmjs.com/) - Node.js package manager.
+- [Java](https://www.oracle.com/java/technologies/javase-downloads.html) - Required for running the Spring Boot backend.
+- [Spring Boot CLI](https://docs.spring.io/spring-boot/docs/current/reference/html/getting-started-installing-spring-boot.html) - Optional, but recommended.
  
- 1.Clone the repository: git clone https://github.com/Bhavya-Dadheech/ProductivityPulse.git
- 
- 2.Create a .env.local file in the root folder.
- 
- 3.In the .env, create a variable REACT_APP_NEWS_API='Your Api Key'.Replace 'Your API Key' with your actual API key.
-   (You can create a account at NewsApi and get your own api key)
+# Frontend (Angular)
 
-    https://newsapi.org/
-    
- 4.Now you are ready to start running the application. Use the following commands:
-   
+1. Open a Command Prompt and navigate to the `frontend` directory:
+
+    ```bash
+    cd frontend
+    ```
+
+2. Install dependencies:
+
+    ```bash
     npm install
+    ```
 
-    npm start
+3. Run the Angular development server:
 
- 5.News Horizon is now running on localhost.
+    ```bash
+    ng serve
+    ```
+
+   The application will be accessible at `http://localhost:4200/`.
+
+### Backend (Spring Boot)
+
+1. To run backend you can open the project in eclipse IDE.
+
+2. You have to create a databse in MYSQL. you can set database configuration in application.properties.
+
+3. Now you can run your java application.
 
 # Tech Stack Used
 
